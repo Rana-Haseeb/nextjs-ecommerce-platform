@@ -33,6 +33,12 @@ export default async function Navbar() {
               <span className="hidden text-cream/50 sm:inline">
                 {session.user.name?.split(" ")[0] ?? session.user.email}
               </span>
+              <Link
+                href="/orders"
+                className="text-cream/70 transition hover:text-cream"
+              >
+                Orders
+              </Link>
               {session.user.role === "admin" && (
                 <Link
                   href="/admin"

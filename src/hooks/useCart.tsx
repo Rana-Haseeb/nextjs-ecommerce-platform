@@ -53,9 +53,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
 
+  // Hydrate from localStorage after mount. This has to run in an effect
+  // rather than a lazy initializer because localStorage is unavailable during
+  // server rendering.
   useEffect(() => {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (raw) setItems(JSON.parse(raw));
     } catch {
       // ignore malformed/inaccessible storage

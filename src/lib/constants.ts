@@ -10,3 +10,7 @@ export const PRODUCT_CATEGORIES = [
 ] as const;
 
 export type ProductCategory = (typeof PRODUCT_CATEGORIES)[number];
+
+export const ORDER_PAYMENT_STATUSES = ["pending", "paid", "failed"] as const;
+
+export type OrderPaymentStatus = (typeof ORDER_PAYMENT_STATUSES)[number];

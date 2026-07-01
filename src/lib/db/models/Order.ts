@@ -1,6 +1,6 @@
 import { Schema, models, model, type InferSchemaType } from "mongoose";
 
-export const ORDER_PAYMENT_STATUSES = ["pending", "paid", "failed"] as const;
+import { ORDER_PAYMENT_STATUSES } from "@/lib/constants";
 
 const OrderItemSchema = new Schema(
   {
